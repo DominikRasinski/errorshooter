@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgnq7onjo5wbc"]
+
+[ext_resource type="Script" uid="uid://m103bl7iqqri" path="res://enemy/glitched-enemy/glitched_enemy.gd" id="1_jan2i"]
+[ext_resource type="Texture2D" uid="uid://dqopuukg8x56y" path="res://enemy/glitched-enemy/enemy-glitched-1-8px.png" id="2_jan2i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qek2o"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ae5y"]
+atlas = ExtResource("2_jan2i")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5tvd"]
+atlas = ExtResource("2_jan2i")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pty2s"]
+atlas = ExtResource("2_jan2i")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrejf"]
+atlas = ExtResource("2_jan2i")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjk3h"]
+atlas = ExtResource("2_jan2i")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybtik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ae5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5tvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pty2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrejf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjk3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jan2i"]
+
+[node name="Glitched_enemy" type="CharacterBody2D"]
+script = ExtResource("1_jan2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qek2o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ybtik")
+autoplay = "default"
+frame_progress = 0.403738
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jan2i")
+debug_color = Color(0.876308, 0.000412384, 0.833227, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

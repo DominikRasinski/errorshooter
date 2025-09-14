@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2c4p2mqe6oed"]
+
+[ext_resource type="Script" uid="uid://drmphnvirdy27" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://cp285nmwvqytc" path="res://player/player-1-8px.png" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://dusdygxjcwdcb" path="res://utils/light/cone-light-shadow.jpg" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://dn2paw5mhaugi" path="res://control/player_ui.tscn" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://ciuew2j7dj5u2" path="res://utils/shoot/close_004.ogg" id="5_qjkh3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rkbax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yw30f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_g1dw6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(48, -1.16416e-10)
+rotation = -1.57096
+scale = Vector2(0.241318, 0.326936)
+texture = ExtResource("3_g1dw6")
+
+[node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_qjkh3")

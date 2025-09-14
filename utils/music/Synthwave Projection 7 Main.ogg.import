@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dgdo2r0gc3m5r"
+path="res://.godot/imported/Synthwave Projection 7 Main.ogg-68cd0f4707f80da8e37fca4e4efafa6b.oggvorbisstr"
+
+[deps]
+
+source_file="res://utils/music/Synthwave Projection 7 Main.ogg"
+dest_files=["res://.godot/imported/Synthwave Projection 7 Main.ogg-68cd0f4707f80da8e37fca4e4efafa6b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.072
+bpm=120.0
+beat_count=186
+bar_beats=4
