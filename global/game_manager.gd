@@ -11,7 +11,7 @@ var _game_win = null;
 var _game_menu = null;
 var _kills = 0;
 var _health = 5;
-var _win_kills = 1;
+var _win_kills = 10;
 
 func _ready() -> void:
 	_game_over = GAMEOVER.instantiate();
